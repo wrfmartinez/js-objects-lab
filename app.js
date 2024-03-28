@@ -56,8 +56,14 @@ for (partyPokemon of game.party) {
   }
 }
 
-for (partyPokemon of game.party) {
-  console.log(partyPokemon.name);
+// for (partyPokemon of game.party) {
+//   console.log(partyPokemon.name);
+// }
+
+for (const pokemon of pokemons) {
+  if (pokemon.starter === true) {
+    console.log(pokemon);
+  }
 }
 
 // console.log(game.party);
