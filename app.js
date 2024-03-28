@@ -21,5 +21,11 @@ const game = {
 
 game.difficulty = 'Easy';
 
+for (const pokemon of pokemons) {
+  if (pokemon.name === 'Squirtle') {
+    game.party.push(pokemon)
+  }
+}
+
 console.log(game)
 // console.dir(pokemons, { maxArrayLength: null });
