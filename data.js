@@ -1,6 +1,6 @@
 // ! Feel free to explore this file, but do not modify anything here!
 
-const pokemon = [
+const pokemons = [
   { number: 1, name: "Bulbasaur", type: "grass", hp: 45, starter: true },
   { number: 2, name: "Ivysaur", type: "grass", hp: 60, starter: false },
   { number: 3, name: "Venusaur", type: "grass", hp: 80, starter: false },
@@ -154,4 +154,4 @@ const pokemon = [
   { number: 151, name: "Mew", type: "psychic", hp: 100, starter: false },
 ]
 
-module.exports = pokemon;
+module.exports = pokemons;
