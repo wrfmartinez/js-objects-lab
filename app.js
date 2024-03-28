@@ -56,5 +56,9 @@ for (partyPokemon of game.party) {
   }
 }
 
-console.log(game.party);
+for (partyPokemon of game.party) {
+  console.log(partyPokemon.name);
+}
+
+// console.log(game.party);
 // console.dir(pokemons, { maxArrayLength: null });
