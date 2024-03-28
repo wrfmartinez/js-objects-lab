@@ -25,6 +25,15 @@ for (const pokemon of pokemons) {
   if (pokemon.name === 'Squirtle') {
     game.party.push(pokemon)
   }
+  if (pokemon.name === 'Pidgeotto') {
+    game.party.push(pokemon);
+  }
+  if (pokemon.name === 'Growlithe') {
+    game.party.push(pokemon);
+  }
+  if (pokemon.name === 'Exeggcute') {
+    game.party.push(pokemon);
+  }
 }
 
 console.log(game)
