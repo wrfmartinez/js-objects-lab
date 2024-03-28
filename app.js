@@ -44,5 +44,17 @@ for (gym of game.gyms) {
   }
 }
 
-console.log(game.gyms)
+for (partyPokemon of game.party) {
+  if (partyPokemon.name === 'Squirtle') {
+    const evolvedNumber = partyPokemon.number + 1;
+    for (const pokemon of pokemons) {
+      if (pokemon.number === evolvedNumber) {
+        const partyPokemonIndex = game.party.indexOf(partyPokemon);
+        game.party.splice(partyPokemonIndex, 1, pokemon);
+      }
+    }
+  }
+}
+
+console.log(game.party);
 // console.dir(pokemons, { maxArrayLength: null });
