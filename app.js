@@ -38,5 +38,11 @@ for (const pokemon of pokemons) {
 
 game.party.sort((a, b) => b.hp - a.hp)
 
-console.log(game.party)
+for (gym of game.gyms) {
+  if (gym.difficulty < 3) {
+    gym.completed = true;
+  }
+}
+
+console.log(game.gyms)
 // console.dir(pokemons, { maxArrayLength: null });
