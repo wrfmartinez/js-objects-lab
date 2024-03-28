@@ -36,5 +36,7 @@ for (const pokemon of pokemons) {
   }
 }
 
-console.log(game)
+game.party.sort((a, b) => b.hp - a.hp)
+
+console.log(game.party)
 // console.dir(pokemons, { maxArrayLength: null });
