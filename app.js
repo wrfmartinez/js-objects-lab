@@ -80,21 +80,27 @@ Copied catchPokemon method from above and modified it so that it also decreases 
 3. Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
 */
 
-catchPokemon = (pokemonObj) => {
-  game.party.push(pokemonObj);
-  game.items[1].quantity -= 1;
-}
+// catchPokemon = (pokemonObj) => {
+//   game.party.push(pokemonObj);
+//   game.items[1].quantity -= 1;
+// }
 
-catchPokemon(pokemons[55]);
-console.log(game.items[1].quantity);
-catchPokemon(pokemons[67]);
-console.log(game.items[1].quantity);
-catchPokemon(pokemons[27]);
-catchPokemon(pokemons[42]);
-console.log(game.items[1].quantity);
+// catchPokemon(pokemons[55]);
+// console.log(game.items[1].quantity);
+// catchPokemon(pokemons[67]);
+// console.log(game.items[1].quantity);
+// catchPokemon(pokemons[27]);
+// catchPokemon(pokemons[42]);
+// console.log(game.items[1].quantity);
+
+for (gym of game.gyms) {
+  if (gym.difficulty < 6) {
+    gym.completed = true;
+  }
+}
 
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
-// console.log(game.party);
+console.log(game.gyms);
 // console.dir(pokemons, { maxArrayLength: null });
