@@ -72,8 +72,29 @@ for (partyPokemon of game.party) {
 
 game.catchPokemon(pokemons[51]);
 
+/* 
+Copied catchPokemon method from above and modified it so that it also decreases the number of pokeballs every time you catch a pokemon
+
+1. For this exercise, it's okay to have a negative number of pokeballs.
+2. After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+3. Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+*/
+
+catchPokemon = (pokemonObj) => {
+  game.party.push(pokemonObj);
+  game.items[1].quantity -= 1;
+}
+
+catchPokemon(pokemons[55]);
+console.log(game.items[1].quantity);
+catchPokemon(pokemons[67]);
+console.log(game.items[1].quantity);
+catchPokemon(pokemons[27]);
+catchPokemon(pokemons[42]);
+console.log(game.items[1].quantity);
+
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
-console.log(game.party);
+// console.log(game.party);
 // console.dir(pokemons, { maxArrayLength: null });
