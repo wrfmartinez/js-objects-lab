@@ -40,7 +40,8 @@ const game = {
       count++;
     }
     return count;
-  }
+  },
+  collection: []
 }
 
 game.difficulty = 'Easy';
@@ -111,8 +112,6 @@ Copied catchPokemon method from above and modified it so that it also decreases 
 // catchPokemon(pokemons[67]);
 // console.log(game.items[1].quantity);
 // catchPokemon(pokemons[27]);
-// catchPokemon(pokemons[42]);
-// console.log(game.items[1].quantity);
 
 for (gym of game.gyms) {
   if (gym.difficulty < 6) {
@@ -122,16 +121,28 @@ for (gym of game.gyms) {
 
 // game.gymStatus();
 
-// console.log(game.partyCount());
-
 for (gym of game.gyms) {
   if (gym.difficulty < 8) {
     gym.completed = true;
   }
 }
 
+catchPokemon = (pokemonObj) => {
+  if (game.partyCount() > 5) {
+    game.collection.push(pokemonObj);
+  } else {
+    game.party.push(pokemonObj);
+  }
+  game.items[1].quantity -= 1;
+}
+
+catchPokemon(pokemons[42]);
+catchPokemon(pokemons[3]);
+
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
-console.log(game);
+console.log(game.partyCount())
+console.log(game.items);
+console.log(game.collection);
 // console.dir(pokemons, { maxArrayLength: null });
