@@ -127,17 +127,37 @@ for (gym of game.gyms) {
   }
 }
 
+// catchPokemon = (pokemonObj) => {
+//   if (game.partyCount() > 5) {
+//     game.collection.push(pokemonObj);
+//   } else {
+//     game.party.push(pokemonObj);
+//   }
+//   game.items[1].quantity -= 1;
+// }
+
 catchPokemon = (pokemonObj) => {
-  if (game.partyCount() > 5) {
-    game.collection.push(pokemonObj);
+  if (game.items[1].quantity > 0) {
+    if (game.partyCount() > 5) {
+      game.collection.push(pokemonObj);
+    } else {
+      game.party.push(pokemonObj);
+    }
+    game.items[1].quantity -= 1;
   } else {
-    game.party.push(pokemonObj);
+    console.log("There are not enough pokeballs to catch the desired Pokemon");
   }
-  game.items[1].quantity -= 1;
 }
 
 catchPokemon(pokemons[42]);
 catchPokemon(pokemons[3]);
+catchPokemon(pokemons[3]);
+catchPokemon(pokemons[3]);
+catchPokemon(pokemons[3]);
+catchPokemon(pokemons[3]);
+catchPokemon(pokemons[3]);
+catchPokemon(pokemons[3]);
+catchPokemon(pokemons[20]);
 
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
