@@ -149,26 +149,26 @@ for (gym of game.gyms) {
 //   }
 // }
 
-catchPokemon = (pokemonName) => {
-  if (game.items[1].quantity > 0) {
-    for (const pokemon of pokemons) {
-      if (pokemon.name.toLowerCase() === pokemonName.toLowerCase()) {
-        if (game.partyCount() > 5) {
-          game.collection.push(pokemon);
-          game.items[1].quantity -= 1;
-        } else {
-          game.party.push(pokemon);
-          game.items[1].quantity -= 1;
-        }
-        // Exit the function after catching the Pokemon
-        return;
-      }
-    }
-    console.log("Sorry, Pokemon does not exist");
-  } else {
-    console.log("There are not enough pokeballs to catch the desired Pokemon");
-  }
-}
+// catchPokemon = (pokemonName) => {
+//   if (game.items[1].quantity > 0) {
+//     for (const pokemon of pokemons) {
+//       if (pokemon.name.toLowerCase() === pokemonName.toLowerCase()) {
+//         if (game.partyCount() > 5) {
+//           game.collection.push(pokemon);
+//           game.items[1].quantity -= 1;
+//         } else {
+//           game.party.push(pokemon);
+//           game.items[1].quantity -= 1;
+//         }
+//         // Exit the function after catching the Pokemon
+//         return;
+//       }
+//     }
+//     console.log("Sorry, Pokemon does not exist");
+//   } else {
+//     console.log("There are not enough pokeballs to catch the desired Pokemon");
+//   }
+// }
 
 // catchPokemon('Venusaur');
 // catchPokemon('Charmander');
@@ -177,12 +177,31 @@ catchPokemon = (pokemonName) => {
 // catchPokemon('Bulbasaur');
 // catchPokemon('Charmander');
 // catchPokemon('Charmander');
-catchPokemon('Loopie');
+// catchPokemon('Loopie');
 
+const pokemonTypes = {}
+
+for (pokemon of pokemons) {
+  if (!pokemonTypes[pokemon.type]) {
+    pokemonTypes[pokemon.type] = [];
+  }
+}
+
+for (pokemon of pokemons) {
+  pokemonTypes[pokemon.type].push({
+    number: pokemon.number,
+    name: pokemon.name,
+    type: pokemon.type,
+    hp: pokemon.hp,
+    starter: pokemon.starter
+  });
+}
 
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
+// ! Use 'node app.js | less' to see full list
+console.dir(pokemonTypes, { maxArrayLength: null });
 // console.log(game.partyCount())
 // console.log(game.items);
 // console.dir(pokemons, { maxArrayLength: null });
