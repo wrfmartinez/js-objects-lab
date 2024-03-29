@@ -33,6 +33,13 @@ const game = {
       }
     }
     console.log(gymTally);
+  },
+  partyCount: () => {
+    let count = 0;
+    for (partyPokemon of game.party) {
+      count++;
+    }
+    return count;
   }
 }
 
@@ -113,10 +120,12 @@ for (gym of game.gyms) {
   }
 }
 
-game.gymStatus();
+// game.gymStatus();
+
+console.log(game.partyCount());
 
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
-// console.log(game.gyms);
+console.log(game.party);
 // console.dir(pokemons, { maxArrayLength: null });
