@@ -133,5 +133,5 @@ for (gym of game.gyms) {
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
-console.log(game.gyms);
+console.log(game);
 // console.dir(pokemons, { maxArrayLength: null });
