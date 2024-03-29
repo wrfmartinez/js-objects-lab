@@ -136,33 +136,53 @@ for (gym of game.gyms) {
 //   game.items[1].quantity -= 1;
 // }
 
-catchPokemon = (pokemonObj) => {
+// catchPokemon = (pokemonObj) => {
+//   if (game.items[1].quantity > 0) {
+//     if (game.partyCount() > 5) {
+//       game.collection.push(pokemonObj);
+//     } else {
+//       game.party.push(pokemonObj);
+//     }
+//     game.items[1].quantity -= 1;
+//   } else {
+//     console.log("There are not enough pokeballs to catch the desired Pokemon");
+//   }
+// }
+
+catchPokemon = (pokemonName) => {
   if (game.items[1].quantity > 0) {
-    if (game.partyCount() > 5) {
-      game.collection.push(pokemonObj);
-    } else {
-      game.party.push(pokemonObj);
+    for (const pokemon of pokemons) {
+      if (pokemon.name.toLowerCase() === pokemonName.toLowerCase()) {
+        if (game.partyCount() > 5) {
+          game.collection.push(pokemon);
+          game.items[1].quantity -= 1;
+        } else {
+          game.party.push(pokemon);
+          game.items[1].quantity -= 1;
+        }
+        // Exit the function after catching the Pokemon
+        return;
+      }
     }
-    game.items[1].quantity -= 1;
+    console.log("Sorry, Pokemon does not exist");
   } else {
     console.log("There are not enough pokeballs to catch the desired Pokemon");
   }
 }
 
-catchPokemon(pokemons[42]);
-catchPokemon(pokemons[3]);
-catchPokemon(pokemons[3]);
-catchPokemon(pokemons[3]);
-catchPokemon(pokemons[3]);
-catchPokemon(pokemons[3]);
-catchPokemon(pokemons[3]);
-catchPokemon(pokemons[3]);
-catchPokemon(pokemons[20]);
+// catchPokemon('Venusaur');
+// catchPokemon('Charmander');
+// catchPokemon('Bulbasaur');
+// catchPokemon('Bulbasaur');
+// catchPokemon('Bulbasaur');
+// catchPokemon('Charmander');
+// catchPokemon('Charmander');
+catchPokemon('Loopie');
+
 
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
-console.log(game.partyCount())
-console.log(game.items);
-console.log(game.collection);
+// console.log(game.partyCount())
+// console.log(game.items);
 // console.dir(pokemons, { maxArrayLength: null });
