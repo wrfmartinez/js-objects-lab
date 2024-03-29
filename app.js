@@ -19,6 +19,20 @@ const game = {
   ],
   catchPokemon: (pokemonObj) => {
     game.party.push(pokemonObj);
+  },
+  gymStatus: () => {
+    const gymTally = {
+      completed: 0,
+      incomplete: 0
+    }
+    for (gym of game.gyms) {
+      if (gym.completed === true) {
+        gymTally.completed++;
+      } else {
+        gymTally.incomplete++;
+      }
+    }
+    console.log(gymTally);
   }
 }
 
@@ -99,8 +113,10 @@ for (gym of game.gyms) {
   }
 }
 
+game.gymStatus();
+
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
-console.log(game.gyms);
+// console.log(game.gyms);
 // console.dir(pokemons, { maxArrayLength: null });
