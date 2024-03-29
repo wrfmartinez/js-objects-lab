@@ -122,10 +122,16 @@ for (gym of game.gyms) {
 
 // game.gymStatus();
 
-console.log(game.partyCount());
+// console.log(game.partyCount());
+
+for (gym of game.gyms) {
+  if (gym.difficulty < 8) {
+    gym.completed = true;
+  }
+}
 
 // Sorts the party of pokemons based on their hp levels from highest to lowest
 game.party.sort((a, b) => b.hp - a.hp)
 
-console.log(game.party);
+console.log(game.gyms);
 // console.dir(pokemons, { maxArrayLength: null });
